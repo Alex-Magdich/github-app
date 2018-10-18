@@ -6,9 +6,18 @@
     {{user.email}}
   </mat-card-subtitle>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item>name: {{user.name}} </mat-list-item>
-      <mat-list-item>email: {{user.email}} </mat-list-item>
-    </mat-list>
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="New post" (keyup)="onKey($event)">
+      </mat-form-field>
+      <button (click)="onAdd()" mat-button color="primary">Add post</button>
+    </div>
+    <div *ngIf="posts">
+
+      <mat-list *ngFor="let post of posts">
+        <mat-list-item>{{post.title}}</mat-list-item>
+      </mat-list>
+    </div>
+
   </mat-card-content>
 </mat-card>

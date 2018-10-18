@@ -12,6 +12,12 @@
 
   <mat-card-actions>
     Author: <a mat-button routerLink="/users/{{post.authorId}}">{{name}}</a>
+    <div *ngIf="comments">
+
+      <mat-list *ngFor="let comment of comments">
+        <mat-list-item>{{comment.msg}}</mat-list-item>
+      </mat-list>
+    </div>
   </mat-card-actions>
 
 </mat-card>
